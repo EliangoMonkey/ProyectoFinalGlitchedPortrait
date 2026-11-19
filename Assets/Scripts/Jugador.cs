@@ -83,15 +83,19 @@ public class Jugador : MonoBehaviour
         Ray ray =componenteCamara.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit raycastHit;
 
-        if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity))
+        if (componenteAnimator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))
         {
-            Debug.Log(raycastHit.point);
+            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity))
+            {
+                Debug.Log(raycastHit.point);
 
-            Vector3 mira = raycastHit.point;
-            mira.y = transform.position.y;
+                Vector3 mira = raycastHit.point;
+                mira.y = transform.position.y;
 
-            transform.LookAt(mira);
+                transform.LookAt(mira);
+            }
         }
+        
 
         // Ataque
         if (playerInput.actions["Attack"].WasPressedThisFrame())
