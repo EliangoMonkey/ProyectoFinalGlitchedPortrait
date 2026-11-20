@@ -1,3 +1,5 @@
+
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +23,7 @@ public class Jugador : MonoBehaviour
     public Transform lugarDisparo;
 
     void Start()
-    {
+    {x
         characterController = GetComponent<CharacterController>();
 
         componenteAnimator = objetoModelo.GetComponent<Animator>();
@@ -35,8 +37,8 @@ public class Jugador : MonoBehaviour
         componenteCamara = Camera.main;
 
         auxiliarCamara = new GameObject();
-    }
-
+    }3
+      
     void Update()
     {
         // Leer movimiento
@@ -104,5 +106,6 @@ public class Jugador : MonoBehaviour
 
             Instantiate(prefabBala, lugarDisparo.position, transform.rotation);
         }
+
     }
 }
